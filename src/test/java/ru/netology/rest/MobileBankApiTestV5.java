@@ -5,7 +5,6 @@ import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
-import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.hamcrest.Matchers.*;
 
 class MobileBankApiTestV5 {
@@ -23,7 +22,6 @@ class MobileBankApiTestV5 {
           .statusCode(200)
           .contentType(ContentType.JSON)
           .body("every{ it.balance >= 0 }", is(true))
-              //.body(matchesJsonSchemaInClasspath("accounts.schema.json"))
       ;
     }
 }
